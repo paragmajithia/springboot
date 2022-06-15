@@ -10,13 +10,13 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.Optional;
 
 @RestController
+@RequestMapping("user")
 public class UserController {
 
     @Autowired
     private UserRepository userRepo;
 
-    @GetMapping("user")
-    @ResponseBody
+    @GetMapping("getById")
     public User getUserById(@RequestParam(name = "id", required = false, defaultValue = "unknown user")
                                     Long id) {
         Optional<User> userOpt = userRepo.findById(id);
@@ -25,8 +25,7 @@ public class UserController {
     }
 
     @PostMapping("create")
-    @ResponseBody
-    public User createUser(User user) {
+    public User createUser(@RequestBody User user) {
         User userCreated = userRepo.save(user);
         return userCreated;
     }
