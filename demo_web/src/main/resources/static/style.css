@@ -1,0 +1,23 @@
+body {
+    background-color: aquamarine;
+}
+div.sectionGreet {
+    background-color: lightgreen;
+    display: block;
+    border: 1px solid red;
+}
+div.sectionGetUser {
+    background-color: lightskyblue;
+    display: block;
+    border: 1px solid violet;
+}
+div.sectionCreateUser {
+    background-color: yellow;
+    display: block;
+    border: 1px solid orange;
+}
+div.sectionAllUser {
+    background-color: lightslategray;
+    display: block;
+    border: 1px solid crimson
+}

@@ -1,17 +1,81 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
     <title>Greeting page</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Styles should be under head section -->
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<p><a href="/hello">Greet the world (without request params)</a></p>
-<form action="/hello" method="GET" id="nameForm">
-    <div>
-        <label for="nameField">Greeting with request param. Enter name?</label>
-        <input name="myName" id="nameField">
-        <button>Greet me!</button>
+    <!-- Summary section of page -->
+    <h1> Demo Web application </h1>
+    <h2> Sample to:</h2>
+    <ol>
+        <li>Greet User with name (with and without request param)</li>
+        <li>Get User details by request param and by path variable</li>
+        <li>Create user (in memory database on server)</li>
+        <li>Get all user</li>
+    </ol>
+    <!-- Greeting user like hello world -->
+    <div class="sectionGreet">
+        Both below example redirects to new page via href link Or via form tag
+        <ul>
+            <li>
+                <p><b><a href="/hello">Greet the world (without request params)</a></b></p>
+            </li>
+            <li>
+                <form action="/hello" method="GET" id="nameForm">
+                    <div>
+                        <b><label for="nameField">Greeting with request param. Enter name?</label></b>
+                        <input name="myName" id="nameField">
+                        <button>Greet me!</button>
+                    </div>
+                </form>
+            </li>
+        </ul>
     </div>
-</form>
+    <!-- Get user details by id via both path variable & request params-->
+    <div class="sectionGetUser">
+        <b>
+            <p>Fetch User details by Id. It display user details below in same page</p>
+        </b>
+        <ul>
+            <li>
+                <div class="sectionGetUserByPath">
+                    <label for="fetchId">Enter user id (Fetch user details by path variable)</label>
+                    <input name="fetchId" id="fetchPathUserId" type="number">
+                    <input id="getUserButtonPath" type="button" value="Get User Details" onclick="fetchUserByPathVar()">
+                </div>
+            </li>
+            <li>
+                <div class="sectionGetUserByRequestParam">
+                    <form action="/user/getById" method="GET" id="nameForm">
+                        <div>
+                            <label for="fetchRequestUserId">Enter user id (Fetch user details by request params)</label>
+                            <input name="id" id="fetchRequestUserId">
+                            <input id="getUserButtonRequest" type="button" value="Get User Details"
+                                onclick="fetchUserByRequestParam()">
+                        </div>
+                    </form>
+                </div>
+            </li>
+        </ul>
+        <p>User Details by ID:</p>
+        <div id="userDetails"></div>
+    </div>
+
+    <!-- Create user section-->
+    <div class="sectionCreateUser">
+        <p>Create User:</p>
+    </div>
+    <!-- Get all user section -->
+    <div class="sectionAllUser">
+        <p>Get All Users:</p>
+    </div>
+    <!-- Ideally keep all script at bottom of body tag to prevent blocking of rendering -->
+    <script src="index.js" type="text/javascript"></script>
 </body>
+
 </html>

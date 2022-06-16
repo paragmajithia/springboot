@@ -16,6 +16,16 @@ public class UserController {
     @Autowired
     private UserRepository userRepo;
 
+    /**
+     * Get By ID using request param
+     * @param id
+     * @return
+     */
+    @GetMapping("{id}")
+    public User getUserByIdPathVar(@PathVariable("id") Long id) {
+        return this.getUserById(id);
+    }
+
     @GetMapping("getById")
     public User getUserById(@RequestParam(name = "id", required = false, defaultValue = "unknown user")
                                     Long id) {
